@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 3</title>
+</head>
+<body>
+
+<h2>Course Enrollment System</h2>
+<pre id="output"></pre>
+
+<script>
+class Course {
+    constructor(courseName, instructor) {
+        this.courseName = courseName;
+        this.instructor = instructor;
+    }
+
+    displayCourse() {
+        return `Course: ${this.courseName}, Instructor: ${this.instructor}`;
+    }
+}
+
+let course1 = new Course("Web Technologies", "Dr. Kumar");
+
+let result = course1.displayCourse() + "\n";
+
+let enrollCourse = new Promise((resolve, reject) => {
+    let seatsAvailable = true;
+    if (seatsAvailable)
+        resolve("Enrollment Successful");
+    else
+        reject("Course Full");
+});
+
+enrollCourse
+.then(msg => {
+    result += msg;
+    document.getElementById("output").textContent = result;
+    console.log(msg);
+})
+.catch(err => {
+    result += err;
+    document.getElementById("output").textContent = result;
+    console.log(err);
+});
+
+console.log(course1.displayCourse());
+</script>
+
+</body>
+</html>

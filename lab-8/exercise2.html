@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 2</title>
+</head>
+<body>
+
+<h2>Student Object Details</h2>
+<pre id="output"></pre>
+
+<script>
+const student = {
+    id: 101,
+    name: "Priya",
+    department: "CSE",
+    marks: 92
+};
+
+const { id, name, department, marks } = student;
+
+let result = `${id} ${name} ${department} ${marks}\n`;
+
+let grade = marks >= 90 ? "A" :
+            marks >= 75 ? "B" :
+            marks >= 50 ? "C" : "D";
+
+const updatedStudent = {
+    ...student,
+    grade: grade
+};
+
+result += JSON.stringify(updatedStudent, null, 2);
+
+document.getElementById("output").textContent = result;
+
+console.log(id, name, department, marks);
+console.log(updatedStudent);
+</script>
+
+</body>
+</html>
